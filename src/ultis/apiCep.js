@@ -1,7 +1,7 @@
-
+/* 
 import { useForm } from "react-hook-form";
 
-import React from 'react'
+
 
 const apiCep = () => {
 
@@ -35,4 +35,4 @@ const apiCep = () => {
     
 }
 
-export default apiCep
+export default apiCep */

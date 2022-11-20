@@ -1,5 +1,6 @@
 import heroimg from "../assets/hero.png";
 
+
 import hightlightimg from "../assets/hightlightimg.png";
 import sneakershoe from "../assets/sneaker.png";
 
@@ -31,6 +32,8 @@ import instagram from "../assets/instagram.svg";
 import twitter from "../assets/twitter.svg";
 import youtube from "../assets/youtube.svg";
 import messenger from "../assets/messenger.svg";
+
+
 
 const heroapi = {
   title: "Os Melhores Tênis",

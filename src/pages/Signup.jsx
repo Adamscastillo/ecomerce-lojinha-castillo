@@ -2,11 +2,19 @@ import React from "react";
 import { LockClosedIcon } from "@heroicons/react/20/solid";
 
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 
 import logo from "../assets/logo.png";
-
 import { api } from "../services/api";
+
+//import { token } from "../ultis/token";
+// preciso fazer requerimento de dentro da api
+
+import { toast } from "react-hot-toast";
+
+
+
+
 
 const Signup = () => {
 
@@ -26,30 +34,39 @@ const Signup = () => {
         setFocus("number");
       });
   };
- 
-
+  // submit do CEP
   const onSubmit = (e) => {
     console.log(e);
   };
 
-  //variaveis que recebem os elementos do input
-
   //função que manupula os que é recebido
+  
   function handleDados() {
+    
+
     const dados = getValues();
     console.log(dados);
     api.post("/v1/user", dados).then((response) => {
-      console.log(response);
+      
+      toast(response.data.message)
+      localStorage.setItem("token", response.data.token);
+      /* console.log(response.data.token);
+      console.log(response); */
+        
+        
+ 
     });
+    
   }
+
 
   return (
     <>
-      <div className="bg-theme flex items-center justify-center py-12 px-8 lg:h-[75vh] md:h-[65vh] sm:h-[55vh] w-auto h-auto">
-        <div className="w-full max-w-md mb-12 space-y-8 ">
+      <div className="bg-theme flex min-h-full items-center justify-center py-10 px-4 h-[120vh] lg:h-[90vh] md:h-[95vh] sm:h-[110vh] w-auto">
+        <div className="w-full max-w-md mb-10 space-y-8 ">
           <div>
             <img
-              className={`mx-auto h-12 w-auto mt-20 text-gray-900`}
+              className={`mx-auto h-12 w-auto mt-60 text-gray-900`}
               src={logo}
               alt="Your Company"
             />
@@ -70,13 +87,11 @@ const Signup = () => {
             <input type="hidden" name="remember" defaultValue="true" />
             <div className="-space-y-px rounded-md shadow-sm">
               <div>
-                <label htmlFor="Nome" className="sr-only">
+                <label htmlFor="username" className="sr-only">
                   Nome
                 </label>
                 <input
-                  {...register("nome")}
-                  name="nome"
-                  autoComplete="nome"
+                  {...register("username")}
                   required
                   className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 mb-1 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                   placeholder="Nome "
@@ -87,12 +102,12 @@ const Signup = () => {
                   CEP
                 </label>
                 <input
+                  {...register("cep")}
                   className="relative block w-full appearance-none rounded-none border border-gray-300 px-3 py-2 mb-1 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                   type="text"
                   required
                   placeholder="CEP"
-                  {...register("cep")}
-                  maxLength={8}
+                  maxLength="8"
                   onBlur={apiCep}
                 />
               </form>
@@ -103,7 +118,6 @@ const Signup = () => {
                 <input
                   {...register("address")}
                   type="text"
-                  autoComplete="address"
                   required
                   className="relative block w-80 appearance-none rounded-none border border-gray-300 px-3 py-2 mb-1 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                   placeholder="Rua / Av / Trav"
@@ -114,7 +128,6 @@ const Signup = () => {
                 <input
                   {...register("number")}
                   type="text"
-                  autoComplete="numbe"
                   required
                   className="relative block w-32 appearance-none rounded-none border border-gray-300 px-3 py-2 mb-1 ml-1 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                   placeholder="Número"
@@ -127,9 +140,8 @@ const Signup = () => {
                 <input
                   {...register("district")}
                   type="text"
-                  autoComplete="district"
                   required
-                  className="relative block w-80 appearance-none rounded-none border border-gray-300 px-3 py-2 mb-1 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                  className="relative block w-[11.5rem] lg:w-[10rem] md:w-[8.5rem] sm:w-[8rem] appearance-none rounded-none border border-gray-300 px-3 py-2 mb-1 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                   placeholder="Bairro"
                 />
 
@@ -139,9 +151,8 @@ const Signup = () => {
                 <input
                   {...register("city")}
                   type="text"
-                  autoComplete="city"
                   required
-                  className="relative block w-28 appearance-none rounded-none border border-gray-300 px-3 py-2 mb-1 ml-1 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                  className="relative block w-[8rem] lg:w-[9rem] md:w-[6.5rem] sm:w-[8rem] appearance-none rounded-none border border-gray-300 px-3 py-2 mb-1 ml-1 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                   placeholder="Cidade"
                 />
                 <label htmlFor="UF" className="sr-only">
@@ -150,9 +161,8 @@ const Signup = () => {
                 <input
                   {...register("UF")}
                   type="text"
-                  autoComplete="UF"
                   required
-                  className="relative block w-14 appearance-none rounded-none border border-gray-300 px-3 py-2 mb-1 ml-1 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                  className="relative block w-[8rem] lg:w-[8.5rem] md:w-[6rem] sm:w-[5rem] appearance-none rounded-none border border-gray-300 px-3 py-2 mb-1 ml-1 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                   placeholder="UF"
                 />
               </div>
@@ -163,23 +173,21 @@ const Signup = () => {
                 <input
                   {...register("email")}
                   type="email"
-                  autoComplete="email"
                   required
                   className="relative block w-full appearance-none rounded-none  border border-gray-300 px-3 py-2 mb-1 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                   placeholder="Email"
                 />
               </div>
               <div>
-                <label htmlFor="Senha" className="sr-only">
-                  Senha
+                <label htmlFor="password" className="sr-only">
+                  senha
                 </label>
                 <input
-                  {...register("senha")}
+                  {...register("password")}
                   type="password"
-                  autoComplete="current-password"
                   required
                   className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                  placeholder="Senha"
+                  placeholder="password"
                 />
               </div>
             </div>
@@ -213,7 +221,9 @@ const Signup = () => {
             <div>
               <button
                 onClick={handleDados}
+
                 type="button"
+                to={"/"}
                 className="relative opacity-100 flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 mb-10 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
                 <span className="absolute inset-y-0 left-0 flex items-center pl-3">
@@ -224,8 +234,11 @@ const Signup = () => {
                 </span>
                 Cadastrar
               </button>
+
             </div>
+
           </form>
+                     
         </div>
       </div>
     </>

@@ -13,7 +13,11 @@ import CartCount from "./cart/CartCount";
 import CartEmpty from "./cart/CartEmpty";
 import CartItem from "./cart/CartItem";
 
+import {useNavigate} from "react-router-dom";
+
+
 const Cart = () => {
+
   const dispatch = useDispatch();
   const ifCartState = useSelector(selectCartState);
   const cartItems = useSelector(selectCartItems);
@@ -37,6 +41,10 @@ const Cart = () => {
   const onClearCartItems = () => {
     dispatch(setClearCartItems())
   }
+
+  // redirect 
+
+  const navigate = useNavigate()
   
   return (
     <>
@@ -69,7 +77,9 @@ const Cart = () => {
               </div>
               <div className="grid items-center gap-2">
                 <p className="text-sm font-medium text-center">Frete Grátis</p>
-                <button type="button" className="button-theme bg-theme-cart text-white">Finalizar Compra</button>
+                <button onClick={()=>navigate("/pagamento")} className="button-theme bg-theme-cart text-white">
+                 Finalizar Compra                        
+                </button>
               </div>
             </div>
 
