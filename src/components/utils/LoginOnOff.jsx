@@ -1,10 +1,10 @@
 import React from 'react'
+import { Link } from "react-router-dom";
+//import {ConfigUser} from './ConfigUser'
 import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import ImgPerfil from '../../assets/noname.png'
-
-import { toast } from "react-hot-toast";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -37,13 +37,15 @@ export default function LoginOnOff() {
                 <Menu.Item>
                 {({ active }) => (
                     <a
-                    href="#"
+
+                   
                     className={classNames(
                         active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                         'block px-4 py-2 text-sm'
                     )}
                     >
-                    Configurações 
+                        <Link to={"/DadosUser"}>Editar Conta</Link>
+                   
                     </a>
                 )}
                 </Menu.Item>
@@ -77,8 +79,8 @@ export default function LoginOnOff() {
                 <Menu.Item>
                     {({ active }) => (
                     <button
-                        onClick={() => {localStorage.removeItem("token")
-                        window.location.reload() }}              
+                        onClick={() => {localStorage.clear()
+                        window.location.assign("/") }}              
 
                         type="submit"
                         className={classNames(

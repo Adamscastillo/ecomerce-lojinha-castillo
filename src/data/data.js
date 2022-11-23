@@ -36,8 +36,8 @@ import messenger from "../assets/messenger.svg";
 
 
 const heroapi = {
-  title: "Os Melhores Tênis",
-  subtitle: "Para seus pés",
+  title: "OS MELHORES TÊNIS",
+  subtitle: "para seus pés",
   img: heroimg,
   btntext: "Nosso Produtos",
   videos: [

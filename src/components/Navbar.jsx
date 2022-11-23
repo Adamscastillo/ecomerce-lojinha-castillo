@@ -4,15 +4,14 @@ import { LoginOnOff } from "./Main.js";
 import { useDispatch, useSelector } from "react-redux";
 import { selectTotalQTY, setOpenCart } from "../app/CartSlice.js";
 import { Link } from "react-router-dom";
-import { httpDelete } from "../services/api";
 import {
   HeartIcon,
   MagnifyingGlassIcon,
   ShoppingBagIcon,
-  UserCircleIcon,
+  
   IdentificationIcon,
 } from "@heroicons/react/24/outline";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo.webp";
 
 
 const Navbar = () => {
@@ -56,6 +55,7 @@ const Navbar = () => {
 
   // dropdown
   const [showOptions, setShowoptions] = useState(false);
+  
   const handleClick = () => {
     setShowoptions(!showOptions);
   };
@@ -69,19 +69,7 @@ const Navbar = () => {
 
   }
 
-  function handleDelete() {
-
-    httpDelete(`/v1/user/${localStorage.getItem("userId")}`, {
-      headers: { "Authorization": `Bearer ${localStorage.getItem("token")}` }
-    })
-      .then((response) => {
-
-        localStorage.clear();
-        alert("usario deletado");
-
-      });
-
-  }
+  
   return (
     <>
       <header
@@ -97,7 +85,7 @@ const Navbar = () => {
             <img
               src={logo}
               alt="logo/img"
-              className={`w-12 h-auto ${navState && "filter brightness-0"}`}
+              className={`w-16 mr-4 h-20${navState && "filter brightness-0"}`}
             />
             <button
               className={`text-3xl lg:text-2xl md:text-xl sm:text-opacity-0 xsm:text-x1 font-extrabold filter drop-shadow-sm${navState && "filter brightness-0"

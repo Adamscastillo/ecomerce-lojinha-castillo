@@ -4,8 +4,8 @@ import { LockClosedIcon } from "@heroicons/react/20/solid";
 import { useForm } from "react-hook-form";
 import { Link} from "react-router-dom";
 
-import logo from "../assets/logo.png";
-import { api } from "../services/api";
+import logo from "../assets/logo.webp";
+import {createUser } from "../services/api";
 
 //import { token } from "../ultis/token";
 // preciso fazer requerimento de dentro da api
@@ -36,7 +36,7 @@ const Signup = () => {
   };
   // submit do CEP
   const onSubmit = (e) => {
-    console.log(e);
+   
   };
 
   //função que manupula os que é recebido
@@ -45,14 +45,13 @@ const Signup = () => {
     
 
     const dados = getValues();
-    console.log(dados);
-    api.post("/v1/user", dados).then((response) => {
+    
+    createUser.post("/v1/user", dados).then((response) => {
+      
       
       toast(response.data.message)
       localStorage.setItem("token", response.data.token);
-      /* console.log(response.data.token);
-      console.log(response); */
-        
+  
         
  
     });
@@ -66,7 +65,7 @@ const Signup = () => {
         <div className="w-full max-w-md mb-10 space-y-8 ">
           <div>
             <img
-              className={`mx-auto h-12 w-auto mt-60 text-gray-900`}
+              className={`mx-auto h-20 w-auto mt-60 text-gray-900`}
               src={logo}
               alt="Your Company"
             />
@@ -220,10 +219,11 @@ const Signup = () => {
 
             <div>
               <button
-                onClick={handleDados}
+                onClick={async (handleDados) =>
+                  window.location.assign("/")
+                }
 
                 type="button"
-                to={"/"}
                 className="relative opacity-100 flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 mb-10 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
                 <span className="absolute inset-y-0 left-0 flex items-center pl-3">

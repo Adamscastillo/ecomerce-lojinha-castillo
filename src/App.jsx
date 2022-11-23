@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Cart, Footer, Navbar, } from './components/Main';
+import { Cart, DadosUser, Footer, Navbar, } from './components/Main';
 import { footerAPI } from './data/data.js';
  
 // pages
@@ -21,6 +21,7 @@ const App = () => {
         <Route element={<Login />} exact path="/login" />
         <Route element={<Signup />} exact path="/signup" />
         <Route element={<Pagamento />} exact path="/pagamento" />
+        <Route element={<DadosUser />} exact path="/DadosUser" />
         
       </Routes>
       

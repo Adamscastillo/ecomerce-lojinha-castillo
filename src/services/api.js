@@ -1,19 +1,11 @@
 import axios from 'axios'
 
 const baseURL = 'http://localhost:4000'
-console.log(baseURL);
 
+export const createUser = axios.create({baseURL})
 
-export const api = axios.create({
-    baseURL
-})
+//buscar user por ID pega o caminho e as configuracoes 
+export const userById=(path, config={ }) => axios.get(`${baseURL}${path}`, config)
 
-export const httpDelete=(path, config={ }) => axios.delete(`${baseURL}${path}`, config)
-
-/* async function sendData(route, object) {
-    const {data} = await api.post(route, object)
-    return data   
-}
-
-export {sendData} */
- 
+//delete user por id
+export const deleteUSer=(path, config={ }) => axios.delete(`${baseURL}${path}`, config)

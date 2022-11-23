@@ -3,11 +3,12 @@ import { LockClosedIcon } from "@heroicons/react/20/solid";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
-import logo from "../assets/logo.png";
-//importe axios api
-import { api } from "../services/api";
+import logo from "../assets/logo.webp";
+
+import { createUser } from "../services/api";
 
 import { toast } from "react-hot-toast";
+import Home  from "../pages/Home"
 
 
 
@@ -19,7 +20,7 @@ export default function Login() {
   async function handleDados() {
     //pegar dos valores do imput
     const dados = getValues();
-    const response = await api.post("/v1/user/auth", dados)
+    const response = await createUser.post("/v1/user/auth", dados)
       .then((response) => {
         //salva no localstorage
         localStorage.setItem("token", response.data.token);
@@ -37,7 +38,7 @@ export default function Login() {
         <div className="w-full max-w-md mb-12 space-y-8 ">
           <div>
             <img
-              className={`mx-auto h-12 w-auto mt-40 text-gray-900`}
+              className={`mx-auto h-20 w-auto mt-40 text-gray-900`}
               src={logo}
               alt="Your Company"
             />
@@ -115,7 +116,7 @@ export default function Login() {
               <button
                 onClick={async (dados) => {
                   await handleDados(dados);
-                  window.location.reload()
+                  window.location.assign("/")
                 }}
                 type="button"
                 className="relative opacity-100 flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"

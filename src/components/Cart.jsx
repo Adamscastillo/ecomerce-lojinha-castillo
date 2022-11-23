@@ -77,7 +77,8 @@ const Cart = () => {
               </div>
               <div className="grid items-center gap-2">
                 <p className="text-sm font-medium text-center">Frete Grátis</p>
-                <button onClick={()=>navigate("/pagamento")} className="button-theme bg-theme-cart text-white">
+                <button onClick={()=>window.location.assign("/pagamento")} 
+                className="button-theme bg-theme-cart text-white">
                  Finalizar Compra                        
                 </button>
               </div>

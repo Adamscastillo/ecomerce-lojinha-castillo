@@ -16,7 +16,7 @@ const Hero = ({
             <h1 className="text-6xl lg:text-5xl md:text-4xl sm:text-3xl xsm:text-2xl font-extrabold filter drop-shadow-sm text-slate-200">
               {title}
             </h1>
-            <h1 className="text-6xl lg:text-5xl md:text-4xl sm:text-3xl xsm:text-2xl font-extrabold filter drop-shadow-sm text-slate-200">
+            <h1 className="text-6xl lg:text-5xl md:text-4xl sm:text-3xl xsm:text-2xl font-light lobster filter drop-shadow-sm text-slate-200">
               {subtitle}
             </h1>
             <button
