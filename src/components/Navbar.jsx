@@ -82,19 +82,21 @@ const Navbar = () => {
       >
         {/* import do logo */}
         <nav className="flex items-center justify-between nike-container">
-          <div className="flex items-center">
+          <Link  to="/" className="flex items-center">
+
             <img
               src={logo}
               alt="logo/img"
+              to = "/"
               className={`w-16 mr-4 h-20${navState && "filter brightness-0"}`}
             />
             <button
               className={`text-3xl lg:text-2xl md:text-xl sm:text-opacity-0 xsm:text-x1 font-extrabold filter drop-shadow-sm${navState && "filter brightness-0"
                 } text-slate-200`}
             >
-              <Link to="/">Lojinha Castillo</Link>
+              Lojinha Castillo
             </button>
-          </div>
+          </Link>
 
           {/* importes dos icones do navbar */}
           <ul className="flex items-center justify-center px-0 py-0 gap-0 sm:ml-[-2rem]">
