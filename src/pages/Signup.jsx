@@ -126,7 +126,7 @@ const Signup = () => {
                   {...register("number")}
                   type="text"
                   required
-                  className="relative block w-32 appearance-none rounded-none border border-gray-300 px-3 py-2 mb-1 ml-1 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                  className="relative block w-28 appearance-none rounded-none border border-gray-300 px- py-2 mb-1 ml-1 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                   placeholder="Número"
                 />
               </div>
@@ -159,7 +159,7 @@ const Signup = () => {
                   {...register("UF")}
                   type="text"
                   required
-                  className="relative block w-[8rem] lg:w-[8.5rem] md:w-[6rem] sm:w-[5rem] appearance-none rounded-none border border-gray-300 px-3 py-2 mb-1 ml-1 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                  className="relative block w-[8rem] lg:w-[8.5rem] md:w-[6rem] sm:w-[4rem] appearance-none rounded-none border border-gray-300 px-3 py-2 mb-1 ml-1 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                   placeholder="UF"
                 />
               </div>
