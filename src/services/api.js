@@ -2,7 +2,7 @@ import axios from 'axios'
 
 
 
-const baseURL = 'https://lojinha-castillo-api.vercel.app'
+const baseURL = 'http://localhost:4000'
 
 export const createUser = axios.create({baseURL})
 
