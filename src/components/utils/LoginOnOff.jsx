@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from "react-router-dom";
-//import {ConfigUser} from './ConfigUser'
 import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
@@ -80,7 +79,9 @@ export default function LoginOnOff() {
                     {({ active }) => (
                     <button
                         onClick={() => {localStorage.clear()
-                        window.location.assign("/") }}              
+                        window.location.assign("/") 
+                       
+                     }}              
 
                         type="submit"
                         className={classNames(

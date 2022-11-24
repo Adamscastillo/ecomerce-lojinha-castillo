@@ -66,6 +66,7 @@ const Navbar = () => {
 
     localStorage.clear();
     alert("saiu")
+    //window.location.assign("/")
 
   }
 

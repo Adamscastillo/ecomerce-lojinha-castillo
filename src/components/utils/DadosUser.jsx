@@ -37,9 +37,9 @@ export default function DadosUser() {
     })
       .then((response) => {
 
+        alert("usuario deletado");
         localStorage.clear();
-        alert("usario deletado");
-        window.location.reload() 
+        window.location.assign("/") 
 
       });
 

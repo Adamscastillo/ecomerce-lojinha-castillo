@@ -7,8 +7,10 @@ import logo from "../assets/logo.webp";
 
 import { createUser } from "../services/api";
 
+import qs from "query-string";
+
 import { toast } from "react-hot-toast";
-import Home  from "../pages/Home"
+
 
 
 
@@ -27,10 +29,29 @@ export default function Login() {
         localStorage.setItem("userId", response.data.user._id);
 
         toast(response.data.message);
+        window.location.assign("/")
 
       })
-      .catch(error => toast(error.message));
+      .catch(err => toast(err.message));
   }
+
+
+   // funcao do github
+   async function redirectToGithub() {
+    const GITHUB_AUTH_URL = 'https://github.com/login/oauth/authorize';
+    const params = {
+      response_type: 'code',
+      scope: 'user public_repo',
+      client_id: process.env.CLIENT_ID,
+      redirect_uri: process.env.REDIRECT_URL,
+      state: 'test-t5',
+    }
+         
+    const queryStrings = qs.stringify(params);
+    const authorizationUrl = `${GITHUB_AUTH_URL}?${queryStrings}`;
+    window.location.href("authorizationUrl")
+  }
+
 
   return (
     <>
@@ -112,22 +133,39 @@ export default function Login() {
               </div>
             </div>
             {/* button de submit */}
-            <div>
+            <div className=" m-20 my-8">
               <button
                 onClick={async (dados) => {
                   await handleDados(dados);
-                  window.location.assign("/")
+
                 }}
                 type="button"
-                className="relative opacity-100 flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                className="relative opacity-100 flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 my-2  text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
-                <span className="absolute inset-y-0 left-0 flex items-center pl-3">
+                <span className="absolute inset-y-0 left-0 flex items-center pl-3 ">
                   <LockClosedIcon
                     className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
                     aria-hidden="true"
                   />
                 </span>
                 Entrar
+              </button>
+              
+              <button //button do git
+              
+                onClick={redirectToGithub}
+                type="button"
+                className="relative opacity-100 flex w-full justify-center rounded-md border border-transparent bg-white py-2 px-4 my-2 text-sm font-medium text-black hover:bg-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              >
+                <span className="absolute inset-y-0 left-0 flex items-center pl-3">
+                  <img
+                    src="https://img.icons8.com/ios-filled/50/000000/github.png"
+                    className="h-8 w-8 group-hover:text-indigo-400"
+                    aria-hidden="true"
+                  />
+
+                </span>
+                Entre com GitHub
               </button>
             </div>
           </form>
