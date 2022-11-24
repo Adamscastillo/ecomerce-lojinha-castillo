@@ -97,21 +97,21 @@ const Navbar = () => {
           </div>
 
           {/* importes dos icones do navbar */}
-          <ul className="flex items-center justify-center px-1 py-0 gap-0 sm:ml-[-2rem]">
-            <li className="grid items-center px-2">
+          <ul className="flex items-center justify-center px-0 py-0 gap-0 sm:ml-[-2rem]">
+            <li className="grid items-center px-1">
               <MagnifyingGlassIcon
                 className={`icon-style ${navState &&
                   "text-slate-900 transition-all duration-300 sm:opacity-0"
                   }`}
               />
             </li>
-            <li className="grid items-center px-2">
+            <li className="grid items-center px-1">
               <HeartIcon
                 className={`icon-style ${navState && "text-slate-900 transition-all duration-300"
                   }`}
               />
             </li>
-            <li className="grid items-center px-2">
+            <li className="grid items-center px-1">
               <button
                 type="button"
                 onClick={onCartToggle}
@@ -132,11 +132,11 @@ const Navbar = () => {
               </button>
             </li>
             {/* menu cadastro */}
-            <div className="flex items-center justify-center pl-6 py-1 gap-4 ">
+            <div className="flex items-center justify-center pl-0 py-1 gap-2 ">
               <div className=" flex items-center border-none outline-none active:scale-110 transition-all duration-300 relative">
                 <Link
                   to={"/signup"}
-                  className=" flex items-center xsm:mr-6 sm:mr-2"
+                  className=" flex items-center xsm:mr-1 sm:mr-2"
                 >
                   <IdentificationIcon
                     className={` icon-style ${navState && "text-slate-900 transition-all duration-300"
