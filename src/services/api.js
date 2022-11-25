@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseURL = (`https://lojinha-castillo-api.vercel.app`,{headers: {'Access-Control-Allow-Origin': '*'}})
+const baseURL = ({headers: {'Access-Control-Allow-Origin': 'https://lojinha-castillo-api.vercel.app'}})
 
 
 export const createUser = axios.create({baseURL})
