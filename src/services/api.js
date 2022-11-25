@@ -1,9 +1,9 @@
 import axios from 'axios'
 
-const baseURL = 'https://lojinha-castillo-api.vercel.app/'
+const baseURL = 'https://lojinha-castillo-api-adamscastillo.vercel.app'
 
 
-export const createUser = axios.create({baseURL}, {headers: {'Access-Control-Allow-Origin': '*'}})
+export const createUser = axios.create({baseURL})
 
 //buscar user por ID pega o caminho e as configuracoes 
 export const userById=(path, config={ }) => axios.get(`${baseURL}${path}`, config)
