@@ -116,7 +116,7 @@ const Signup = () => {
                   {...register("address")}
                   type="text"
                   required
-                  className="relative block w-80 appearance-none rounded-none border border-gray-300 px-3 py-2 mb-1 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                  className="relative block w-[19rem] appearance-none rounded-none border border-gray-300 px-3 py-2 mb-1 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                   placeholder="Rua / Av / Trav"
                 />
                 <label htmlFor="number" className="sr-only">
@@ -126,7 +126,7 @@ const Signup = () => {
                   {...register("number")}
                   type="text"
                   required
-                  className="relative block w-28 appearance-none rounded-none border border-gray-300 px- py-2 mb-1 ml-1 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                  className="relative block w-[11.5rem] lg:w-[10rem] md:w-[12rem] sm:w-[7rem] appearance-none rounded-none border border-gray-300 px- py-2 mb-1 ml-1 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                   placeholder="Número"
                 />
               </div>
@@ -138,7 +138,7 @@ const Signup = () => {
                   {...register("district")}
                   type="text"
                   required
-                  className="relative block w-[11.5rem] lg:w-[10rem] md:w-[8.5rem] sm:w-[8rem] appearance-none rounded-none border border-gray-300 px-3 py-2 mb-1 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                  className="relative block w-[11.5rem] lg:w-[10rem] md:w-[12rem] sm:w-[14vh] appearance-none rounded-none border border-gray-300 px-3 py-2 mb-1 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                   placeholder="Bairro"
                 />
 
@@ -149,7 +149,7 @@ const Signup = () => {
                   {...register("city")}
                   type="text"
                   required
-                  className="relative block w-[8rem] lg:w-[9rem] md:w-[6.5rem] sm:w-[8rem] appearance-none rounded-none border border-gray-300 px-3 py-2 mb-1 ml-1 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                  className="relative block w-[8rem] lg:w-[9rem] md:w-[9.5rem] sm:w-[9rem] appearance-none rounded-none border border-gray-300 px-3 py-2 mb-1 ml-1 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                   placeholder="Cidade"
                 />
                 <label htmlFor="UF" className="sr-only">
@@ -159,7 +159,7 @@ const Signup = () => {
                   {...register("UF")}
                   type="text"
                   required
-                  className="relative block w-[8rem] lg:w-[8.5rem] md:w-[6rem] sm:w-[4rem] appearance-none rounded-none border border-gray-300 px-3 py-2 mb-1 ml-1 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                  className="relative block w-[8rem] lg:w-[8.5rem] md:w-[6rem] sm:w-[4.5rem] appearance-none rounded-none border border-gray-300 px-3 py-2 mb-1 ml-1 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                   placeholder="UF"
                 />
               </div>
