@@ -1,4 +1,4 @@
-import heroimg from "../assets/hero.png";
+import heroimg from "../assets/hero.webp";
 
 
 import hightlightimg from "../assets/hightlightimg.png";
