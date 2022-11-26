@@ -70,6 +70,7 @@ const Item = ({
               onClick={()=> onAddToCart()}
             >
               <ShoppingBagIcon className="icon-style text-slate-900" />
+              
             </button>
             <button
               type="button"
